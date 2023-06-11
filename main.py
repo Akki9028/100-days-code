@@ -1,51 +1,45 @@
-import turtle as t
-import time
-import random
-from snake import Snake
-from food import Food
-from scoreboard import Scoreboard
+# with open("data.csv") as data:
+#   data =data.readlines()
+#   print(data)
 
-#Create snake body
-screen = t.Screen()
-screen.setup(width=600, height=600)
-screen.bgcolor("black")
-screen.tracer(0)
 
-snake = Snake()
-food = Food()
-scoreboard = Scoreboard()
+# import csv
 
-screen.listen()
-screen.onkey(snake.up, "Up")
-screen.onkey(snake.down, "Down")
-screen.onkey(snake.left, "Left")
-screen.onkey(snake.right, "Right")
+# with open("data.csv") as data:
+#   data =csv.reader(data)
+#   temperature = []
+#   for row in data:
+#     if row[1] != "temp":
+#       temperature.append(int(row[1]))
+      
+#   print(temperature)
 
-while True:
-  screen.update()
-  time.sleep(0.2)
-  snake.move()
+import pandas
+data =pandas.read_csv("weather_data.csv")
+# print(data["temp"])
+# temp_list = data["temp"].to_list()
+# print(temp_list)
+# print(len(temp_list))
 
-  #Detect collision with food
-  if snake.head.distance(food) < 15:
-    food.refresh()
-    scoreboard.increasescore()
-    snake.extend_snake()
+# average and max temp
+# print(data["temp"].mean())
+# print(data["temp"].max())
 
-  #Detect collision with wall
-  if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor(
-  ) > 280 or snake.head.ycor() < -280:
-    scoreboard.reset()
-    snake.reset()
-    # break
+# get data in columns
+# print(data["condition"])
+# print(data.condition)
 
-  #detect collision with snake tail
-  for turtle in snake.turtle_list:
-    if snake.head == turtle:
-      pass
-    elif snake.head.distance(turtle) < 10:
-      scoreboard.reset()
-      snake.reset()
-      # break
+# get data in row
+# print(data[data.day== "Monday"])
+# print(data[data.temp==data.temp.max()])
 
-screen.exitonclick()
+
+# Create dataframe from scratch
+data_dict ={
+  "student":["Amy","james","Angela"],
+  "scores":[76,56,65]
+}
+
+data = pandas.DataFrame(data_dict)
+data.to_csv("new_file.csv")
+
