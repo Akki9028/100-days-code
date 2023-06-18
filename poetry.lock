@@ -429,6 +429,14 @@ optional = false
 python-versions = ">=3.6"
 
 [[package]]
+name = "pyperclip"
+version = "1.8.2"
+description = "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "pyseto"
 version = "1.7.0"
 description = "A Python implementation of PASETO/PASERK."
@@ -686,7 +694,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.10.0,<3.11"
-content-hash = "875bcdcee52e31a86e5788bb7d7b93d8bddd83fa3d1ff1c0e3471e08df027282"
+content-hash = "7635a47a56c3d402703eff5d69450c93a5d2e34234ddeee6f8f021793299cd5c"
 
 [metadata.files]
 aiohttp = []
@@ -725,6 +733,7 @@ protobuf = []
 pycparser = []
 pycryptodomex = []
 pyflakes = []
+pyperclip = []
 pyseto = []
 python-dateutil = []
 python-lsp-jsonrpc = []
