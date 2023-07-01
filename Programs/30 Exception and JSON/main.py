@@ -80,30 +80,34 @@ def save_password():
     messagebox.showerror(title="Oops",
                          message="Please don't leave any fields empty.")
 
+
 def find_password():
   website = website_input.get()
 
-  if len(website.strip()) > 0 :
+  if len(website.strip()) > 0:
     try:
       with open(file="data.json", mode="r") as data_file:
         # file.write(f"{website} | {email_username} | {password} \n")
 
         # Reading old data
         data = json.load(data_file)
-                 
+
     except FileNotFoundError:
       messagebox.showerror(title="File Not Found", message="File Not Found.")
     else:
       if website in data:
         email = data[website]["email"]
         password = data[website]["password"]
-        messagebox.showinfo(title=f"{website}", message=f"Email: {email} \nPassword: {password}")
+        messagebox.showinfo(title=f"{website}",
+                            message=f"Email: {email} \nPassword: {password}")
       else:
-        messagebox.showinfo(title="Error",message=f"No details for {website} exists.")
-  else:   
+        messagebox.showinfo(title="Error",
+                            message=f"No details for {website} exists.")
+  else:
     messagebox.showerror(title="Oops",
                          message="Please enter website to search.")
-  
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
@@ -122,10 +126,8 @@ website_input = Entry(width=22)
 website_input.focus()
 website_input.grid(row=1, column=1)
 
-search_button = Button(text="Search", width=15,
-                                  command=find_password)
+search_button = Button(text="Search", width=15, command=find_password)
 search_button.grid(row=1, column=2)
-
 
 email_username_label = Label(text="Email/Username:")
 email_username_label.grid(row=2, column=0)
